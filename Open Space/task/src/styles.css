@@ -32,3 +32,32 @@
     left: 20%;
     bottom: 31%;
 }
+
+.control-panel{
+    background-color: darkblue;
+    position: absolute;
+    display: block;
+    flex-direction: column;
+    width: 35%;
+    height:35%;
+    left: 60%;
+    bottom: 40%;
+    margin: 0 auto;
+
+}
+
+.check-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.levers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 20%;
+    flex-shrink: 1;
+    /*height: 10%;
+     width: 10%;*/
+}
