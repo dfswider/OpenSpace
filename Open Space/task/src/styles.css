@@ -20,30 +20,33 @@
     position: absolute;
     left: -5px;
     bottom: -5px;
-    max-width: 90%;
+    width: 90%;
+    height: 90%;
+    /*max-width: 90%;*/
 
 }
 
 .rocket {
     position: absolute;
     transform: rotate(30deg);
-    width: 20%;
-    height: 30%;
-    left: 20%;
-    bottom: 31%;
+    width: 40%;
+    height: 40%;
+    left: 45%;
+    bottom: 42%;
 }
 
 .control-panel{
     background-color: darkblue;
     position: absolute;
     display: block;
+    /*display: flex;
     flex-direction: column;
+    justify-content: space-between;*/
     width: 35%;
     height:35%;
     left: 60%;
-    bottom: 40%;
-    margin: 0 auto;
-
+    bottom: 20%;
+    text-align: center;
 }
 
 .check-buttons{
@@ -56,8 +59,5 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 20%;
-    flex-shrink: 1;
-    /*height: 10%;
-     width: 10%;*/
+    height: 40%;
 }
