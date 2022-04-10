@@ -3,35 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <title>Open Space</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="space">
-
+<div id="space" class="space">
      <div class="planet-area">
-         <img alt="Deep Space Rocket" class="rocket" src="images/rocket.png">
+         <img id='rocket' alt="Deep Space Rocket" class="rocket" src="images/rocket.png">
          <img alt="Scorched planet" class="planet" src="images/mars.png">
      </div>
     <div class="control-panel">
-        <input type="text" id="pass" name="pass">
-        <input type="button" value="Ok">
-        <div class="check-buttons">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
+        <div class="control-panel__inner">
+            <!-- <div class="password"> -->
+                <input id='p1' type="password" class="pass" value="">
+                <input id='bOK' type="button" class="pass-ok" value="Ok" onclick="passCheck()">
+            <!-- </div> -->
+            <div class="check-buttons">
+                <input disabled id='c0' type="checkbox" class="chk" onchange="enableLaunch()">
+                <input disabled id='c1' type="checkbox" class="chk" onchange="enableLaunch()">
+                <input disabled id='c2' type="checkbox" class="chk" onchange="enableLaunch()">
+                <input disabled id='c3' type="checkbox" class="chk" onchange="enableLaunch()">
+                <input disabled id='c4' type="checkbox" class="chk" onchange="enableLaunch()">
+                <input disabled id='c5' type="checkbox" class="chk" onchange="enableLaunch()">
+            </div>
+            <div class="levers">
+                <input disabled id='l0' type="range" class="rng" min="0" max="10" orient="vertical" onchange="enableLaunch()">
+                <input disabled id='l1' type="range" class="rng" min="0" max="10" orient="vertical" onchange="enableLaunch()">
+                <input disabled id='l2' type="range" class="rng" min="0" max="10" orient="vertical" onchange="enableLaunch()">
+                <input disabled id='l3' type="range" class="rng" min="0" max="10" orient="vertical" onchange="enableLaunch()">
+                <input disabled id='l4' type="range" class="rng" min="0" max="10" orient="vertical" onchange="enableLaunch()">
+            </div>
+            <!-- <div class="launch-div"> -->
+                <input disabled id='launchBtnID' type="button" class="launch" value="Launch" onclick="launchRocket()">
+            <!-- </div> -->
+
         </div>
-        <div class="levers">
-            <input type="range" class="rng" min="0" max="10" orient="vertical">
-            <input type="range" class="rng" min="0" max="10" orient="vertical">
-            <input type="range" class="rng" min="0" max="10" orient="vertical">
-            <input type="range" class="rng" min="0" max="10" orient="vertical">
-            <input type="range" class="rng" min="0" max="10" orient="vertical">
-        </div>
-        <input type="button" value="Launch">
     </div>
 </div>
+<script>
+    function passCheck(){
+        let ok = document.getElementById('p1');
+        if ( ok.value == "TrustNo1" ){
+            document.getElementById('c0').disabled = false;
+            document.getElementById('c1').disabled = false;
+            document.getElementById('c2').disabled = false;
+            document.getElementById('c3').disabled = false;
+            document.getElementById('c4').disabled = false;
+            document.getElementById('c5').disabled = false;
+
+            document.getElementById('l0').disabled = false;
+            document.getElementById('l1').disabled = false;
+            document.getElementById('l2').disabled = false;
+            document.getElementById('l3').disabled = false;
+            document.getElementById('l4').disabled = false;
+        }
+    }
+    function enableLaunch(){
+        let enable = true;
+        let checkboxes = document.getElementsByClassName('chk');
+        let levers = document.getElementsByClassName('rng');
+
+        for ( const element of checkboxes ) {
+            if (!(element.checked)) {
+                enable = false;
+            }
+        }
+        for ( const element of levers ) {
+            if ( element.value !== element.max ) {
+                enable = false;
+            }
+        }
+        document.getElementById('launchBtnID').disabled = !enable;
+    }
+    function launchRocket(){
+        console.log('LAUNCH!!!');
+        console.log( ( window.getComputedStyle( document.getElementById('rocket'))).left );
+        console.log( ( window.getComputedStyle( document.getElementById('rocket'))).bottom );
+        setInterval( moveRocket, 100 );
+    }
+    function moveRocket(){
+        let x = parseInt( window.getComputedStyle( document.getElementById('rocket')).left );
+        let y = parseInt( window.getComputedStyle( document.getElementById('rocket')).bottom );
+
+
+        document.getElementById('rocket').style.left   = (( x + 1 ) + 'px' );
+        document.getElementById('rocket').style.bottom = (( y + 1 ) + 'px' );
+        console.log( x+'px', y+'px' );
+        //document.getElementById('space').redraw();
+    }
+</script>
 </body>
 </html>

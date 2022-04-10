@@ -20,44 +20,62 @@
     position: absolute;
     left: -5px;
     bottom: -5px;
-    width: 90%;
-    height: 90%;
-    /*max-width: 90%;*/
+    max-width: 90%;
 
 }
 
 .rocket {
     position: absolute;
     transform: rotate(30deg);
-    width: 40%;
-    height: 40%;
+    width: 35%;
+    height: 35%;
     left: 45%;
-    bottom: 42%;
+    bottom: 45%;
 }
 
 .control-panel{
-    background-color: darkblue;
     position: absolute;
-    display: block;
-    /*display: flex;
-    flex-direction: column;
-    justify-content: space-between;*/
-    width: 35%;
-    height:35%;
+    margin: 0 auto;
+    width: 30%;
+    height: 40%;
     left: 60%;
     bottom: 20%;
-    text-align: center;
+    background-color: gray;
+
+    /*background-color: gray;*/
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,.5) 20px, rgba(255,255,255,.5) 40px);
+
+}
+
+.control-panel__inner{
+    position: absolute;
+    background-color: gray;
+    display:flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: space-around;
+    height: 90%;
+    width: 90%;
+    left: 5%;
+    top: 5%;
+    bottom: 5%
+
+}
+
+.password{
+    margin: 0 auto;
 }
 
 .check-buttons{
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
 }
 
 .levers{
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
-    height: 40%;
+}
+
+.launch-div {
+    margin: 0 auto;
 }
